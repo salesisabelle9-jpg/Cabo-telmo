@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site oficial de informações públicas sobre Cabo Telmo, candidato a Deputado Federal 1598." />
+  <meta name="theme-color" content="#050505" />
+  <title>Cabo Telmo | Candidato a Deputado Federal 1598</title>
+  <style>
+    :root{
+      --bg:#050505;
+      --bg-soft:#101010;
+      --card:#151515;
+      --text:#f6f6f6;
+      --muted:#b9b9b9;
+      --line:#2a2a2a;
+      --white:#ffffff;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(92%,var(--max));margin:auto}
+    .eyebrow{
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      font-size:.82rem;
+      color:var(--muted);
+      font-weight:700;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(5,5,5,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    nav{
+      min-height:72px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .nav-links{display:flex;gap:22px;align-items:center}
+    .nav-links a{font-size:.95rem;color:#dedede}
+    .nav-links a:hover{color:#fff}
+    .menu-btn{
+      display:none;
+      background:none;
+      border:1px solid var(--line);
+      color:#fff;
+      padding:9px 12px;
+      border-radius:8px;
+    }
+
+    .hero{
+      min-height:82vh;
+      display:grid;
+      place-items:center;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,.08), transparent 28%),
+        linear-gradient(180deg,#050505 0%,#0d0d0d 100%);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:64px;
+      align-items:center;
+      padding:80px 0;
+    }
+    .hero h1{
+      font-size:clamp(3rem,7vw,6.8rem);
+      line-height:.9;
+      margin:14px 0 20px;
+      text-transform:uppercase;
+      letter-spacing:-.04em;
+    }
+    .hero h1 span{
+      display:block;
+      font-size:.28em;
+      letter-spacing:.12em;
+      margin-bottom:10px;
+    }
+    .number{
+      font-size:clamp(5rem,12vw,10rem);
+      font-weight:900;
+      line-height:.8;
+      margin:22px 0;
+      letter-spacing:-.06em;
+    }
+    .hero p{
+      max-width:670px;
+      font-size:1.08rem;
+      color:#d0d0d0;
+    }
+    .hero-card{
+      background:#000;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.35);
+    }
+    .hero-card img{width:100%;height:100%;object-fit:cover}
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:28px;
+    }
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding:13px 18px;
+      border-radius:9px;
+      font-weight:800;
+      text-transform:uppercase;
+      font-size:.84rem;
+      letter-spacing:.06em;
+      border:1px solid #fff;
+    }
+    .btn-primary{background:#fff;color:#000}
+    .btn-secondary{background:transparent;color:#fff}
+
+    section{padding:90px 0;border-bottom:1px solid var(--line)}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:24px;
+      align-items:end;
+      margin-bottom:38px;
+    }
+    .section-head h2{
+      margin:6px 0 0;
+      font-size:clamp(2rem,5vw,4rem);
+      line-height:1;
+      text-transform:uppercase;
+    }
+    .section-head p{max-width:560px;color:var(--muted)}
+
+    .about{
+      display:grid;
+      grid-template-columns:.8fr 1.2fr;
+      gap:54px;
+      align-items:start;
+    }
+    .about-box{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:28px;
+    }
+    .about-box strong{
+      display:block;
+      font-size:2rem;
+      margin-bottom:4px;
+    }
+    .about-copy p{color:#d3d3d3;font-size:1.05rem}
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:26px;
+      min-height:210px;
+    }
+    .card h3{
+      margin:0 0 12px;
+      text-transform:uppercase;
+      font-size:1.1rem;
+    }
+    .card p{color:var(--muted);margin:0}
+
+    .timeline{display:grid;gap:14px}
+    .timeline-item{
+      display:grid;
+      grid-template-columns:150px 1fr;
+      gap:26px;
+      padding:22px 0;
+      border-top:1px solid var(--line);
+    }
+    .timeline-item:first-child{border-top:none}
+    .timeline-item strong{text-transform:uppercase}
+    .timeline-item p{margin:0;color:var(--muted)}
+
+    .agenda{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+    }
+    .agenda-item{
+      background:#0d0d0d;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px;
+    }
+    .agenda-date{font-size:.82rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+    .agenda-item h3{margin:8px 0}
+
+    .contact-box{
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:30px;
+      align-items:center;
+      background:#fff;
+      color:#000;
+      padding:36px;
+      border-radius:18px;
+    }
+    .contact-box h2{margin:0 0 8px;text-transform:uppercase;font-size:clamp(2rem,4vw,3.5rem)}
+    .contact-box p{margin:0;max-width:680px}
+    .contact-box .btn{border-color:#000}
+
+    footer{padding:36px 0 48px;color:#9f9f9f}
+    .footer-grid{
+      display:flex;
+      justify-content:space-between;
+      gap:30px;
+      flex-wrap:wrap;
+      font-size:.9rem;
+    }
+
+    @media(max-width:850px){
+      .nav-links{
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        background:#080808;
+        border-bottom:1px solid var(--line);
+        padding:18px 4%;
+        flex-direction:column;
+        align-items:flex-start;
+        display:none;
+      }
+      .nav-links.open{display:flex}
+      .menu-btn{display:block}
+      .hero-grid,.about{grid-template-columns:1fr}
+      .hero-grid{gap:34px}
+      .hero-card{max-width:620px}
+      .grid-3,.agenda{grid-template-columns:1fr}
+      .timeline-item{grid-template-columns:1fr;gap:4px}
+      .contact-box{grid-template-columns:1fr}
+      .section-head{display:block}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="brand" href="#inicio">Cabo Telmo</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">Menu</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#sobre">Sobre</a>
+        <a href="#propostas">Propostas</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Informações oficiais da candidatura</div>
+        <h1><span>Candidato a Deputado Federal</span>Cabo Telmo</h1>
+        <div class="number">1598</div>
+        <p>
+          Segurança, raízes e compromisso com o povo. Este site reúne informações públicas
+          sobre trajetória, propostas, agenda e canais oficiais da candidatura.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#propostas">Ver propostas</a>
+          <a class="btn btn-secondary" href="#contato">Canais oficiais</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <img src="assets/cabo-telmo-logo.jpg" alt="Identidade visual Cabo Telmo 1598">
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Apresentação</div>
+          <h2>Quem é Cabo Telmo</h2>
+        </div>
+        <p>
+          Espaço para apresentar a biografia oficial do candidato de forma objetiva,
+          incluindo atuação profissional, vínculo com a comunidade e experiência pública.
+        </p>
+      </div>
+
+      <div class="about">
+        <div class="about-box">
+          <strong>1598</strong>
+          <span>Candidato a Deputado Federal</span>
+        </div>
+        <div class="about-copy">
+          <p>
+            Substitua este texto pela biografia oficial de Cabo Telmo. O ideal é usar
+            2 ou 3 parágrafos curtos, com informações verificáveis e linguagem institucional.
+          </p>
+          <p>
+            Você também pode incluir cidade de origem, formação, atuação profissional,
+            projetos anteriores e principais áreas de trabalho.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="propostas">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Plano de atuação</div>
+          <h2>Propostas</h2>
+        </div>
+        <p>
+          Insira abaixo apenas propostas oficialmente adotadas pela candidatura.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>Segurança Pública</h3>
+          <p>Descreva aqui as propostas oficiais relacionadas à segurança pública.</p>
+        </article>
+        <article class="card">
+          <h3>Saúde</h3>
+          <p>Descreva aqui as propostas oficiais relacionadas à saúde.</p>
+        </article>
+        <article class="card">
+          <h3>Educação</h3>
+          <p>Descreva aqui as propostas oficiais relacionadas à educação.</p>
+        </article>
+        <article class="card">
+          <h3>Desenvolvimento</h3>
+          <p>Descreva aqui as propostas oficiais para emprego, renda e desenvolvimento.</p>
+        </article>
+        <article class="card">
+          <h3>Comunidade</h3>
+          <p>Descreva aqui as propostas voltadas às comunidades e serviços públicos.</p>
+        </article>
+        <article class="card">
+          <h3>Fiscalização</h3>
+          <p>Descreva aqui compromissos públicos relacionados à fiscalização e transparência.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="trajetoria">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Histórico</div>
+          <h2>Trajetória</h2>
+        </div>
+        <p>Use esta seção para organizar os principais marcos da carreira e atuação pública.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <strong>Início</strong>
+          <p>Adicione aqui o início da trajetória profissional ou de serviço público.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>Atuação</strong>
+          <p>Adicione projetos, funções exercidas e experiências relevantes.</p>
+        </div>
+        <div class="timeline-item">
+          <strong>Atualidade</strong>
+          <p>Apresente a atuação atual e os objetivos institucionais da candidatura.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Compromissos públicos</div>
+          <h2>Agenda</h2>
+        </div>
+        <p>Atualize esta área com eventos, reuniões e compromissos públicos.</p>
+      </div>
+
+      <div class="agenda">
+        <div class="agenda-item">
+          <div class="agenda-date">Data a definir</div>
+          <h3>Agenda pública</h3>
+          <p>Local e detalhes do compromisso.</p>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date">Data a definir</div>
+          <h3>Encontro comunitário</h3>
+          <p>Local e detalhes do compromisso.</p>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-date">Data a definir</div>
+          <h3>Evento oficial</h3>
+          <p>Local e detalhes do compromisso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <div class="eyebrow" style="color:#444">Contato</div>
+          <h2>Canais oficiais</h2>
+          <p>
+            Insira aqui os links oficiais de WhatsApp, Instagram, Facebook, e-mail e demais
+            canais públicos da candidatura.
+          </p>
+        </div>
+        <a class="btn" href="#" aria-label="Link para contato oficial">Adicionar links</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-grid">
+    <div>© 2026 Cabo Telmo. Todos os direitos reservados.</div>
+    <div>
+      Inserir aqui a identificação legal obrigatória da campanha, conforme orientação jurídica/contábil eleitoral.
+    </div>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+</script>
+
+</body>
+</html>
